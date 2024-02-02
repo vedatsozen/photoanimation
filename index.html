@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOTO ANIMATION</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    
+<div id="container">
+    <img class="photo photo1" src="images/photo1.jpg">
+    <img class="photo photo2" src="images/photo2.jpg">
+    <img class="photo photo3" src="images/photo3.jpg">
+</div>
+
+<script>
+
+    $(document).ready(function() {
+        let photo = $(".photo");
+        let photo1 = $(".photo1");
+        let photo2 = $(".photo2");
+        let photo3 = $(".photo3");
+    
+        photo.mouseover(function() {
+            $(this).addClass("selected");
+            $(this).siblings().removeClass("selected");
+            photo1.css("transform","rotate(25deg)");
+            photo2.css("transform","rotate(0deg)");
+            photo3.css("transform","rotate(-25deg)");
+        });
+
+    
+        photo.mouseleave(function() {
+            photo1.css("transform","rotate(0deg)");
+            photo2.css("transform","rotate(0deg)");
+            photo3.css("transform","rotate(0deg)");
+        });
+
+        photo.click(function() {
+          
+            $(this).css("transform","scale(1.2)");
+          
+        });
+
+    });
+    
+    </script>
+</body>
+</html>
